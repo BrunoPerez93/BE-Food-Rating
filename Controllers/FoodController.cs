@@ -9,9 +9,11 @@ namespace food_rating.Controllers
     public class FoodController : ControllerBase
     {
         private readonly IFoodRepository _food;
-        public FoodController(IFoodRepository foodRepository)
+        private readonly FoodContext _foodContext;
+        public FoodController(IFoodRepository foodRepository, FoodContext foodContext)
         {
             _food = foodRepository;
+            _foodContext = foodContext;
         }
 
         [HttpGet]
@@ -21,6 +23,20 @@ namespace food_rating.Controllers
             var foodData = _food.Foods.ToArray();
 
             return foodData;
+        }
+
+        [HttpPost]
+        [Route("addFood")]
+        public async Task<IActionResult> AddFood([FromBody] Food food)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            await _foodContext.Foods.AddAsync(food);
+            await _foodContext.SaveChangesAsync();
+            return Ok();
         }
     }
 }

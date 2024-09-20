@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("food-rating")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+93d7fa5952b1c59f4a2c07fe045760135ad55f0f")]
 [assembly: System.Reflection.AssemblyProductAttribute("food-rating")]
 [assembly: System.Reflection.AssemblyTitleAttribute("food-rating")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
