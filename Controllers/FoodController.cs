@@ -37,6 +37,7 @@ namespace food_rating.Controllers
             await _foodContext.Foods.AddAsync(food);
             await _foodContext.SaveChangesAsync();
             return Ok();
+
         }
     }
 }
