@@ -1,6 +1,7 @@
 ﻿using food_rating.Model;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace food_rating.Controllers
 {
@@ -25,6 +26,14 @@ namespace food_rating.Controllers
             return foodData;
         }
 
+        [HttpGet]
+        [Route("Obtain/{id:int}")]
+        public async Task<IActionResult> GetFoodById(int id)
+        {
+            var food = await _foodContext.Foods.FirstOrDefaultAsync(e => e.Id == id);
+            return StatusCode(StatusCodes.Status200OK, food);
+        }
+
         [HttpPost]
         [Route("addFood")]
         public async Task<IActionResult> AddFood([FromBody] Food food)
@@ -38,6 +47,26 @@ namespace food_rating.Controllers
             await _foodContext.SaveChangesAsync();
             return Ok();
 
+        }
+
+        [HttpPut]
+        [Route("Edit")]
+        public async Task<IActionResult> EditFood([FromBody] Food food)
+        {
+            _foodContext.Foods.Update(food);
+            await _foodContext.SaveChangesAsync();
+
+            return StatusCode(StatusCodes.Status200OK, new { message = "ok" });
+        }
+
+        [HttpDelete]
+        [Route("Delete/{id:int}")]
+        public async Task<IActionResult> DeleteFoodById(int id)
+        {
+            var food = await _foodContext.Foods.FirstOrDefaultAsync(e => e.Id == id);
+            _foodContext.Foods.Remove(food);
+            await _foodContext.SaveChangesAsync();
+            return StatusCode(StatusCodes.Status200OK, new { message = "ok" });
         }
     }
 }

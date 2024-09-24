@@ -1,6 +1,54 @@
 [
   {
     "ContainingType": "food_rating.Controllers.FoodController",
+    "Method": "AddFood",
+    "RelativePath": "api/Food/addFood",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "food",
+        "Type": "food_rating.Model.Food",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "food_rating.Controllers.FoodController",
+    "Method": "DeleteFoodById",
+    "RelativePath": "api/Food/Delete/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "food_rating.Controllers.FoodController",
+    "Method": "EditFood",
+    "RelativePath": "api/Food/Edit",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "food",
+        "Type": "food_rating.Model.Food",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "food_rating.Controllers.FoodController",
     "Method": "Get",
     "RelativePath": "api/Food/getFood",
     "HttpMethod": "GET",
@@ -18,5 +66,21 @@
         "StatusCode": 200
       }
     ]
+  },
+  {
+    "ContainingType": "food_rating.Controllers.FoodController",
+    "Method": "GetFoodById",
+    "RelativePath": "api/Food/Obtain/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   }
 ]
